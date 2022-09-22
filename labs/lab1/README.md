@@ -13,7 +13,7 @@ Some of Python's notable features:
 * Runs anywhere, including Mac OS X, Windows, Linux, and Unix, with unofficial builds also available for Android and iOS.
 * Is free software in two senses. It doesn't cost anything to download or use Python, or to include it in your application. Python can also be freely modified and re-distributed because while the language is copyrighted it's available under an open-source license [[ref](https://wiki.python.org/moin/BeginnersGuide/Overview)]."
 
-**"Python** is a general-purpose, versatile, and powerful programming language. It’s a great first language because it’s concise and easy to read. Whatever you want to do, Python can do it. From web development to machine learning to data science, Python is the language for you":
+"**Python** is a general-purpose, versatile, and powerful programming language. It’s a great first language because it’s concise and easy to read. Whatever you want to do, Python can do it. From web development to machine learning to data science, Python is the language for you":
 
 * Great first language,
 * Large programming community,
@@ -22,38 +22,36 @@ Some of Python's notable features:
 * World-wide popularity,
 * Powerful and flexible [[ref](https://www.codecademy.com/catalog/language/python)].
 
-"Python 3 is more in-demand and includes a typing system. Python 2 is outdated and uses an older syntax for the print function. While Python 2 is still in use for configuration management in DevOps, Python 3 is the current standard." [[ref](https://careerkarma.com/blog/python-2-vs-python-3/)]
-
-**We will use Python 3.**
+**We will use Python 3.** Some legacy applications still use Python 2, but we won't be our concern.
 
 ## Install python [[ref](https://wiki.python.org/moin/BeginnersGuide/Download)]
 
-* You can download python [here](https://www.python.org/downloads/)
-  * **For Windows**: "The most stable Windows downloads are available from the [Python for Windows](https://www.python.org/downloads/windows/) page. On Windows you have a choice between 32-bit (labeled x86) and and 64-bit (labeled x86-64) versions, and several flavors of installer for each. The Python core team thinks there should be a default you don't have to stop and think about, so the yellow download button on the main download page gets you the "x86 executable installer" choice. This is actually a fine choice: you don't need the 64-bit version even if you have 64-bit Windows, the 32-bit Python will work just fine [[ref](https://wiki.python.org/moin/BeginnersGuide/Download)]."
+Python binaries and tarballs can be downloaded from [here](https://www.python.org/downloads/).
+
+* **For Windows**: Latest stable version can be downloaded through [Python Releases for Windows](https://www.python.org/downloads/windows/) page. You will probably want the latest stable 64-bit version.
 * **For MAC** click [here](https://www.python.org/downloads/macos/)
 * **For Linux**: 
-  * Python can be installed on Linux by using your operating system’s package manager. However, depending on your Linux distribution, Python may not be available through a package manager. Therefore, Python needs to be build from source code.
-  * Install from a package manager 
-    - For Red Hat, CentOS or Fedora, install the python3 and python3-devel packages,
-    - For Debian or Ubuntu, install the python3.x and python3.x-dev packages [[ref](https://wiki.python.org/moin/BeginnersGuide/Download)].
-  * Build from source code. Please check [[ref](https://realpython.com/installing-python/#how-to-install-python-on-linux)].    
+  * Most Python distributions come with Python pre-installed, as many system packages depend on it. You can check that by running `which python3` or `python3 --version`.
+  * Install from a package manager:
+    - For Red Hat, CentOS or Fedora: `sudo dnf install python3 python3-devel`,
+    - For Debian or Ubuntu: `sudo apt install python3 python3-dev`.
+  * Build from source code: check the [[ref](https://realpython.com/installing-python/#how-to-install-python-on-linux)].    
 
-## How to run python
+## How to run Python
 
-Setup python3
+* Useful commands
 
-* Set as default
-  - Useful commands
   ```console
   $ which python
   $ python -v
-  $ ls -l /usr/bin/python
   ```
-  - Set interpreter in file header
+
+* Set interpreter in file header
   ```python
   #!/usr/bin/python3
   ```
-* Run directly **python3**
+
+* Run in interactive mode: `python3`
 
 ### Command Line
 
@@ -62,28 +60,27 @@ $ python3
 Python 3.8.2 (default, Jun  8 2021, 11:59:35) 
 [Clang 12.0.5 (clang-1205.0.22.11)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
->>> string_var = "Hello World!"
->>> print(string_var)
+>>> string = "Hello World!"
+>>> print(string)
 Hello World!
 >>> locals()
-{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': <class '_frozen_importlib.BuiltinImporter'>, '__spec__': None, '__annotations__': {}, '__builtins__': <module 'builtins' (built-in)>, 'string_var': 'Hello World!'}
+{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': <class '_frozen_importlib.BuiltinImporter'>, '__spec__': None, '__annotations__': {}, '__builtins__': <module 'builtins' (built-in)>, 'string': 'Hello World!'}
 >>> a = 5
 >>> b = 3
 >>> c = a + (2 * b)
 >>> print(str(c))
 11
 >>> locals()
-{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': <class '_frozen_importlib.BuiltinImporter'>, '__spec__': None, '__annotations__': {}, '__builtins__': <module 'builtins' (built-in)>, 'string_var': 'Hello World!', 'a': 5, 'b': 3, 'c': 11}
+{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': <class '_frozen_importlib.BuiltinImporter'>, '__spec__': None, '__annotations__': {}, '__builtins__': <module 'builtins' (built-in)>, 'string': 'Hello World!', 'a': 5, 'b': 3, 'c': 11}
 >>> exit()
 $
 ```
 
-### Write and run python file (.py)
+### Write and run Python script (.py)
 
 ```console
 $ cat hello_world.py
 #!/usr/bin/python3
-# -*- coding: utf-8 -*-
 
 __author__ = "Peter Cíbik"
 __email__ = "xcibik00@vutbr.cz"
@@ -93,16 +90,19 @@ __credits__ = ["Peter Cíbik" , "Sara Ricci"]
 def main():
     print("Hello World!")
 
-if __name__=='__main__':
-   main()%
-  
+if __name__ == "__main__":
+    main()
+
+$ chmod +x hello_world.py
 $ ./hello_world.py  
 Hello World!
 ```
 
-## EX1 - start with python
+Running Python file directly works fine for small projects, but starts to break down as the number of the files grows. While it won't be adressed here, you can check out [setuptools documenentation](https://setuptools.pypa.io/en/latest/userguide/index.html).
 
-**Indentation** - Some other languages use braces to show where blocks of code begin and end. In Python we use indentation to enclose blocks of code
+## EX1 - start with Python
+
+**Indentation** - Some other languages use braces to show where blocks of code begin and end. In Python we use indentation of four spaces to enclose blocks of code.
 
 ### Arithmetic operators
 
@@ -114,14 +114,14 @@ Hello World!
 - ```**``` Exponentiation
 - ```//``` Divides and rounds down to the nearest integer
 
-**EX1:**  
-My electricity bills for the last four months have been 29€, 32€, 17€ and 84€. What is the average monthly electricity bill over the four month period - print (use ```print()``` function)?
+**EX1:**
+My electricity bills for the last four months have been 29€, 32€, 17€ and 84€. What is the average monthly electricity bill over the four month period? Display the number using the `print` function.
 
 ### Variables and Assignment Operators
 
-- Only use ordinary letters, numbers and underscores in your variable names. They can’t have spaces, and need to start with a letter or underscore
-- You can’t use Python's reserved words, or "keywords" as variable names - [keywords](https://docs.python.org/3/reference/lexical_analysis.html#keywords)
-- The pythonic way to name variables is to use all lowercase letters and underscores to separate words
+- Only use ordinary letters, numbers and underscores in your variable names. They can’t have spaces, and need to start with a letter or and underscore.
+- You can’t use Python's reserved words, or "keywords" as variable names - [keywords](https://docs.python.org/3/reference/lexical_analysis.html#keywords).
+- The pythonic way to name variables is to use all lowercase letters and underscores to separate words.
 
 ```python
 a = 3                                   # integer
@@ -136,23 +136,24 @@ my_string2 = "this is also a string!!!" # str
 ```
 
 ```python
-a += 2 # same as a = a + 2
-b -= 2 # same as b = b - 2
+a += 2  # same as a = a + 2
+b -= 2  # same as b = b - 2
 
 ```
 
 ```python
-5 < 3  # Less Than
-5 > 3  # Greater Than
-3 <= 3 # Less Than or Equal To
-3 >= 5 # Greater Than or Equal To
-3 == 5 # Equal To
-3 != 5 # Not Equal To
+5 < 3   # Less Than
+5 > 3   # Greater Than
+3 <= 3  # Less Than or Equal To
+3 >= 5  # Greater Than or Equal To
+3 == 5  # Equal To
+3 != 5  # Not Equal To
+True is True      # Equal to (between object identities)
+True is not None  # Not Equal To (between object identities)
 
 5 < 3 and 5 == 5 # and - Evaluates if all provided statements are True
 5 < 3 or 5 == 5  # or - Evaluates if at least one of many statements is True
 not 5 < 3        # not - Flips the Bool Value
-
 ```
 
 ### Functions
@@ -174,7 +175,8 @@ def function_name(input_1, input_2):
 
 - The **body of a function** is the code indented after the header line. Here, it's the two lines that define ```pi and return``` the volume.
 - Within this body, we can refer to the argument variables and define new variables, which can only be used within these indented lines.
-- The body will often include a return statement, which is used to send back an output value from the function to the statement that called the function. - A return statement consists of the ```return``` keyword followed by an expression that is evaluated to get the output value for the function. If there is no return statement, the function simply returns ```None```.
+- The body will often include a return statement, which is used to send back an output value from the function to the statement that called the function.
+- A return statement consists of the ```return``` keyword followed by an expression that is evaluated to get the output value for the function. If there is no return statement, the function simply returns ```None```.
 
 #### Main function
 
@@ -203,19 +205,19 @@ if phone_balance < 5:
 - After this line is an indented block of code to be executed if that condition is true. Here, the lines that increment ```phone_balance``` and decrement ```bank_balance``` only execute if it is true that ```phone_balance``` is less than 5. If not, the code in this if block is simply skipped.
 
 ```python
-if season == 'spring':
-    print('plant the garden!')
-elif season == 'summer':
-    print('water the garden!')
-elif season == 'fall':
-    print('harvest the garden!')
-elif season == 'winter':
-    print('stay indoors!')
+if season == "spring":
+    print("plant the garden!")
+elif season == "summer":
+    print("water the garden!")
+elif season == "fall":
+    print("harvest the garden!")
+elif season == "winter":
+    print("stay indoors!")
 else:
-    print('unrecognized season')
+    print("unrecognized season")
 ```
 
-- An ```if``` statement must always start with an if clause, which contains the first condition that is checked. If this evaluates to True, Python runs the code indented in this if block and then skips to the rest of the code after the if statement.
+- An ```if``` statement must always start with an `if` clause, which contains the first condition that is checked. If this evaluates to True, Python runs the code indented in this if block and then skips to the rest of the code after the if statement.
 
 - ```elif``` is short for "else if." An elif clause is used to check for an additional condition if the conditions in the previous clauses in the if statement evaluate to False. As you can see in the example, you can have multiple elif blocks to handle different situations.
 
@@ -223,20 +225,19 @@ else:
 
 **EX3:**
 Create a python file with function that compare two input numbers ```a``` and ```b```, test on same values as in EX2 and print the output:
-* if ```a < b``` - ```return -1```
-* if ```a == b``` - ```return 0```
-* if ```a > b``` - ```return 1```
+* if ```a < b```: ```return -1```
+* if ```a == b```: ```return 0```
+* if ```a > b```: ```return 1```
 
 ### Loops
 
-Python has two kinds of loops - ```for``` loops and ```while``` loops. A for loop is used to "iterate", or do something repeatedly, over an iterable.
+Python has two keywords for loops: ```for``` and ```while```. A `for` loop is used to "iterate", or do something repeatedly, over an iterable.
 An iterable is an object that can return one of its elements at a time. This can include sequence types, such as strings, lists, and tuples, as well as non-sequence types, such as dictionaries and files.
 
 ```python
 cities = ['new york city', 'mountain view', 'chicago', 'los angeles']
 for city in cities:
     print(city)
-print("Done!")
 ```
 
 - The first line of the loop starts with the ```for``` keyword, which signals that this is a for loop
@@ -257,7 +258,7 @@ hand = []
 
 # adds the last element of the card_deck list to the hand list
 # until the values in hand add up to 17 or more
-while sum(hand)  < 17:
+while sum(hand) < 17:
     hand.append(card_deck.pop())
 ```
 
@@ -278,20 +279,20 @@ Create a python file with function that find sum of numbers in a list using ```w
 
 Check ⓒ Udacity – [Introduction to Python Programming](https://www.udacity.com/course/introduction-to-python--ud1110?autoenroll=true) for more and try it out ...  
 
-## HW1 - prepare env for python3
+## HW1 - prepare environment for Python 3 development
 
-* Install python3 on your computer (*or use Virtualbox VM - [Download](https://drive.google.com/file/d/12cw4xfV7TnfzVBosFBTI46Dq8QwnJcTL/view?usp=sharing))
-* Install IDE 
-  * Visual Studio Code - [Download](https://code.visualstudio.com)
-  * PyCharm - [Download](https://www.jetbrains.com/pycharm/)
-* Write and run first program
+- Install python3 on your computer (*or use Virtualbox VM - [Download](https://drive.google.com/file/d/12cw4xfV7TnfzVBosFBTI46Dq8QwnJcTL/view?usp=sharing))
+- Install IDE 
+  - Visual Studio Code - [Download](https://code.visualstudio.com)
+  - PyCharm - [Download](https://www.jetbrains.com/pycharm/)
+- Write and run first program
 
 **Resources**
 
-* Python org [website](https://www.python.org)
+- Python org [website](https://www.python.org)
   - [Doc](https://www.python.org/doc/)
   - [Download](https://www.python.org/downloads/)
   - [Beginner's Guide](https://wiki.python.org/moin/BeginnersGuide)
-* TutorialsPoint - [Python - Basic Syntax](https://www.tutorialspoint.com/python/python_basic_syntax.htm)
-* Python [Cheat Sheet](https://blog.finxter.com/python-cheat-sheet/)
-* Codecademy – [Python](https://www.codecademy.com/catalog/language/python)
+- TutorialsPoint - [Python - Basic Syntax](https://www.tutorialspoint.com/python/python_basic_syntax.htm)
+- Python [Cheat Sheet](https://blog.finxter.com/python-cheat-sheet/)
+- Codecademy – [Python](https://www.codecademy.com/catalog/language/python)
