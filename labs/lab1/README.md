@@ -288,7 +288,7 @@ Check ⓒ Udacity – [Introduction to Python Programming](https://www.udacity.c
 - Write and run first program
 
 **Resources**
-
+- [Introductory presentation](https://docs.google.com/presentation/d/1ObqiRNVDBNBDjDc7OuFyEe6gQl5FnbOv3VKXLNWYS-c/edit?usp=sharing)
 - Python org [website](https://www.python.org)
   - [Doc](https://www.python.org/doc/)
   - [Download](https://www.python.org/downloads/)
