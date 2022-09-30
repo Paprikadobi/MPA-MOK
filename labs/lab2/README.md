@@ -172,7 +172,6 @@ L = np.array([[2, 0, 0], [1, 1, 0], [0, 0, 3]])
 lt.hamdamard_ratio(L) 
 U = lt.rand_unimod(3, 3) 
 B = np.matmul(L, U) 
-B = [[98, -22, -4], [45, -10, -2], [-30, 6, 3]] 
 lt.hamdamard_ratio(B) 
 ```
 
