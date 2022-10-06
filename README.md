@@ -22,6 +22,7 @@ The credit is required for final exam admission and is awarded upon obtaining at
 ## Laboratiries:
 - **Laboratory  1** - [Introduction to python](/labs/lab1/README.md)
 - **Laboratory  2** - [Numpy library and Lattice](/labs/lab2/README.md)
+- **Laboratory  3** - [LWE problem and Regev scheme](/labs/lab3/README.md)
 
 ---
 
