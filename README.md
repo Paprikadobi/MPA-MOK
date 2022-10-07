@@ -49,7 +49,7 @@ Projects are based on publications, i.e. articles on topics taught in this cours
 
 - [*An Implementation of Lattice-based Proof-of-Work on Blockchain.*](2022_EEICT_Krivulcik.pdf),  A. Krivulčík and S. Ricci. In 28th Conference STUDENT EEICT 2022. 
 - [*Paillier Cryptosystem Optimisations for Homomorphic Computation.*](2022_EEICT_Rysava.pdf), P. Ryšavá and S. Ricci. In 28th Conference STUDENT EEICT 2022.
-- *NFT Minting System on Cardano Blockchain.*, M. Tran and P. Dzurenda. In 28th Conference STUDENT EEICT 2022. 
+- [*NFT Minting System on Cardano Blockchain.*](2022_EEICT_Rysava.pdf), M. Tran and P. Dzurenda. In 28th Conference STUDENT EEICT 2022. 
 
 
 ## References:
