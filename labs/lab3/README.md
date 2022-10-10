@@ -145,8 +145,8 @@ LWE and R-LWE problems roughly say:
 *Given (A,As+e), it is hard to compute s*
 
 ---
-**Note**: In LWE, we have vestors and in RLWE we have polynomials. 
-However, we saw that the problmes are "two sides of the same coin", i.e., we can pass from one representation to the other. 
+**Note**: In LWE, we have vectors and in RLWE we have polynomials. 
+However, we saw that the problems are "two sides of the same coin", i.e., we can pass from one representation to the other. 
 
 ---
 
