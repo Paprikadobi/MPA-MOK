@@ -31,7 +31,7 @@ The credit is required for final exam admission and is awarded upon obtaining at
 - [Post-Quantum Cycles]
   - **Lecture 2** - [Introduction to Lattice-based Cryptography](https://moodle.vut.cz/pluginfile.php/501076/mod_resource/content/1/2.pdf)
   - **Lecture 3** - [Lattice-based Cryptography on LWE and R-LWE problems](https://moodle.vut.cz/pluginfile.php/504338/mod_resource/content/1/3.pdf)
-
+ 
 --- 
 
 ## Projects:
