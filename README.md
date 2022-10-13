@@ -45,6 +45,11 @@ Projects are based on publications, i.e. articles on topics taught in this cours
   - seeing suggested articles for the projects
 - The best projects can become publications in [EEICT workshop](https://www.eeict.cz/) where **awards** are given to the best articles.
 
+### Submissions
+Projects will be submitted using github.
+- Fill your github username in this [document](https://docs.google.com/spreadsheets/d/1arfSvg2Uml3m7xfiXoMqonWbEWz7ZzoYo1m2KAxFhOQ/edit?usp=sharing)
+- Repository with name `{STUDENT_ID}` will be created for you [here](https://github.com/orgs/Modern-Cryptography-MPA-MOK/repositories)
+
 --- 
 
 ## EEICT publications:
