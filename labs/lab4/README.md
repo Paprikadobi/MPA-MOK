@@ -37,14 +37,13 @@ import ctypes, os
 ⋮
 
 # do to src folder and compile C source
-system_output = os.system("cd src && make")
+system_output = os.system("cd src && make example.so")
 # load .so
-CFUNC = ctypes.CDLL("src/libCFunctionFile.so")
+clib = ctypes.CDLL("src/example.so")
 # define data types
-CFUNC.SUM.argtypes = [ctypes.c_int, ctypes.c_int]
+clib.add.argtypes = [ctypes.c_int, ctypes.c_int]
 
-# run c function
-python_sum = CFUNC.SUM(python_num_1, python_num_2)
+res = clib.add(5, 3)
 
 ⋮
 ```
@@ -123,6 +122,7 @@ pip3 install pqcrypto
    * compare at least 3 KEM schemes
    * compare at least 3 signing schemes
 * they have to be in the same security level to have a valid comparison, more about [security levels](https://csrc.nist.gov/projects/post-quantum-cryptography/post-quantum-cryptography-standardization/evaluation-criteria/security-(evaluation-criteria))
+* you can check security levels of individual schemes [here](https://openquantumsafe.org/liboqs/algorithms/)
 * measure and compare the execution time of each scheme - [timeit](https://docs.python.org/3/library/timeit.html). Check also [this](https://stackoverflow.com/questions/7370801/how-to-measure-elapsed-time-in-python)
 * measure and compare the size of security entities (Memory [B]) - use len(byte_object)
 
