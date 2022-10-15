@@ -1,187 +1,140 @@
 # Laboratory 4 - PQC
 
-In this laboratory we will work with *pqcrypto* library which implements some of the [PQC NIST candidates to be standardized and round 4 finalists](https://csrc.nist.gov/News/2022/pqc-candidates-to-be-standardized-and-round-4) listed below:  
+In this laboratory we will work with `pqcrypto` library which implements all [PQC NIST finalists](https://csrc.nist.gov/projects/post-quantum-cryptography/round-3-submissions) which are listed below:
 
-**Candidates to be standardized**
-| Public-Key Encryption/KEMs  | Type | Security Level | Pk + Sk + Ct [B] | 
-| ------------- | ------------- | ------------- | ------------- |
-| **CRYSTALS-Kyber** | lattice | 128  | 1 568 |
+| Public-Key Encryption/KEMs | Type    | Security Level | Pk + Sk + Ct [B] | 
+|----------------------------|---------|----------------|------------------|
+| Classic McEliece           | code    | 128            | 267 700          |
+| **CRYSTALS-Kyber**         | lattice | 128            | 1 568            |
+| NTRU                       | lattice | 128            | 3 728            | 
+| SABER                      | lattice | 128            | 2 976            |
 
-
-| Digital Signatures  | Type | Security Level | Pk + Sk + Sgn [B] | 
-| ------------- | ------------- | ------------- | ------------- |
-| **CRYSTALS-Dilithium**  | lattice | ~128  | 4 173 |
-| Falcon | lattice | 128  | 2 435 |
-| SPHINCS  | hash | 128  | 17008 |
-
-**Round 4**
-| Public-Key Encryption/KEMs  | Type | Security Level | Pk + Sk + Ct [B] | 
-| ------------- | ------------- | ------------- | ------------- |
-| Classic McEliece  | code | 128  | 267 700 |
-| BIKE | code | 128 | 8337 |
-| HQC  | code | 128 | 9019 | 
-| SIKE | synergy | 128 | 688 |
-
+| Digital Signatures     | Type         | Security Level | Pk + Sk + Sgn [B] | 
+|------------------------|--------------|----------------|-------------------|
+| **CRYSTALS-Dilithium** | lattice      | ~128           | 4 173             |
+| Falcon                 | lattice      | 128            | 2 435             |
+| Rainbow                | multivariate | 128            | 718 256           |
 
 Kyber and Dilithium belong to Cryptographic Suite for Algebraic Lattices (CRYSTALS), and both rely on the hardness of MLWE problem. 
 
+## C functions in Python
 
-## How to run C function in python3
+In Python 3, it is possible to run functions from other languages.
+`pqcrypto` library is written in C.
 
-In python3, it is possible to run functions from other languages. 
-*pqcrypto* lib uses C programs, let us try to run a C funtion in python3. 
+Compile the source code in directory `src/` and load it in Python:
 
-```python
-import ctypes, os
-
-⋮
-
-# do to src folder and compile C source
-system_output = os.system("cd src && make example.so")
-# load .so
-clib = ctypes.CDLL("src/example.so")
-# define data types
-clib.add.argtypes = [ctypes.c_int, ctypes.c_int]
-
-res = clib.add(5, 3)
-
-⋮
+```bash
+cd src/
+make
 ```
 
----
-HINT: see [example.py](example.py) and [src/](src)
+```python
+import ctypes
 
----
+# Load the library
+c_func = ctypes.CDLL("src/c_func.so")
+# Define data types
+c_func.ADD.argtypes = [ctypes.c_int, ctypes.c_int]
+
+# Run the function
+result: int = c_func.ADD(4, 3)
+```
 
 **Useful**:
-* [ctypes](https://docs.python.org/3/library/ctypes.html)
+* [ctypes documentation](https://docs.python.org/3/library/ctypes.html)
 * [Calling C Functions from Python](https://www.journaldev.com/31907/calling-c-functions-from-python)
 * [How to Call a C function in Python](https://www.geeksforgeeks.org/how-to-call-a-c-function-in-python/)
 
 ### Ex. 1 (1p)
-* create another C function 
+
+- Use file `ex1.py` and `src/c_func.c`.
+- Add subtraction function (`SUB`) into the C source code, compile the code and use it in Python code.
+
 ```c
-void sub(int num_1, int num_2, int *result)
+void SUB (int num_1, int num_2, int *result) {}
 ```
-* function compute **num_1 - num_2**
-  * NOTE: that is void function, result goes throught pointer int *result
-* use this function in python, show the result
+
+- Call the function in Python:
+
+```python
+c_func.SUB(...)
+# Hint: To pass a pointer to a file, you must create an instance of the object
+#       and then pass the reference. Look into the documentation of `ctypes`.
+```
+
+Test it for inputs:
+- 126, 53
+- 37, 94
 
 ## PQC NIST schemes
 
-Lib [pqcrypto](https://github.com/kpdemetriou/pqcrypto) mentioned before
+Create virtual environment.
+It will create new root path for Python to install packages into, to prevent polluting your user directory:
 
-```console
-pip3 install pqcrypto
+```bash
+sudo apt install python3-venv
+python3 -m pip install venv
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install wheel
 ```
 
-<details>
-  <summary>Troubleshooting</summary>
-  
-  **Solution - manual install:**
-  
-  * install virtualenv
-  ```console
-  pip3 install virtualenv
-  ```
-  * `cd` into directory with all labs
-  * create virtual environment (virtualenv might not be in the $PATH variable, search for it):
-  ```console
-  virtualenv venv
-  # or
-  <PATH_TO_VIRTUALENV.EXE> venv
-  ```
-  * make sure your IDE uses new environment:
-  * in VSCode:
-  * CTRL+SHIFT+P -> "Python: Select Interpreter" -> ./venv/bin/python
-  * this should create .vscode folder with settings.json, open it
-  * there should already be `"python.pythonPath": "<RELATIVE_PATH_TO_VENV/BIN/PYTHON(.EXE)>"` setting, add comma and this line:
-  * `"python.terminal.activateEnvironment": true`
-  * now, every new terminal opened should have virt. env. activated
-  * `(venv)` is at the start the line
-  * [Download](https://pypi.org/project/pqcrypto/#files) pqcrypto-0.1.3.tar.gz
-  * unpack pqcrypto-0.1.3.tar.gz into root directory
-  * (maybe winrar portable on windows?)
-  * `cd` into unpacked "pqcrypto-0.1.3" directory
-  * run install script with correct prefix and wait few minutes
-  ```console
-  % python3 setup.py install --prefix=<INSERT_ABSOLUTE_PATH_OF_VENV_FOLDER>
-  ```
-  * pqcrypto now should be installed and usable with `from pqcrypto.XXX.XXX import encrypt, decrypt`
-  * NOTE: you might to install again other used libraries again (such as numpy, etc.)
-  * make sure to have activated virt. env. when using `pip install XXX`
+Ensure your editor/IDE will use this virtual environment:
 
+- VSCode
+  - CTRL+SHIFT+P > Python: Select Interpreter > .venv/bin/python3
+  - Open `.vscode/settings.json` and add `"python.terminal.activateEnvironment": true`
+- PyCharm
+  - Settings > Project > Interpreter > .venv/bin/python3
 
-  Credits: **Petr Muzikant**
-</details>
+To enter the virtual environment manually (e.g. in terminal), run
+
+```bash
+source .venv/bin/activate
+```
 
 ---
+
+Install library [pqcrypto](https://github.com/kpdemetriou/pqcrypto) mentioned above:
+
+```bash
+python3 -m pip install pqcrypto
+```
+
+If the automatic installation fails, follow the manual steps:
+
+```bash
+# download latest release from https://pypi.org/project/pqcrypto/#files
+tar --extract -f pqcrypto-0.1.3.tar.gz
+cd pqcrypto-0.1.3/
+python3 setup.py install --prefix $ABSOLUTE_PATH_OF_VENV_DIRECTORY
+# wait until it is installed
+```
+
+The package should now be importable
+
+```python
+from pqcrypto.kem.saber import encrypt, decrypt
+```
 
 ### Ex. 2 (1p)
-* compare execution time and size of security entities for different implementations of functions from pqcrypto
-   * compare at least 3 KEM schemes
-   * compare at least 3 signing schemes
-* they have to be in the same security level to have a valid comparison, more about [security levels](https://csrc.nist.gov/projects/post-quantum-cryptography/post-quantum-cryptography-standardization/evaluation-criteria/security-(evaluation-criteria))
-* you can check security levels of individual schemes [here](https://openquantumsafe.org/liboqs/algorithms/)
-* measure and compare the execution time of each scheme - [timeit](https://docs.python.org/3/library/timeit.html). Check also [this](https://stackoverflow.com/questions/7370801/how-to-measure-elapsed-time-in-python)
-* measure and compare the size of security entities (Memory [B]) - use len(byte_object)
 
----
+- Use file `ex2.py`.
+- Compare execution time and size of security entities for different functions from pqcrypto:
+  - three KEM schemes,
+  - three signing schemes.
+- Make sure they have the same security level.
+  - See more about security levels on [nist.gov](https://csrc.nist.gov/projects/post-quantum-cryptography/post-quantum-cryptography-standardization/evaluation-criteria/security-(evaluation-criteria).
+  - See the security levels of pqcrypto functions on [openquantumsafe.org](https://openquantumsafe.org/liboqs/algorithms).
+- Measure and compare execution time of each scheme (e.g., https://stackoverflow.com/a/7370824).
+- Measure and compare the size of keys and other entities (e.g., `len(public_key)`).
 
-### Ex. 3/HW. 1 (1p)
+### Ex. 3/HW 1 (1p)
 
-* create function `ntt` that will convert polynomial to NTT domain
-* **input**: *p*, *alpha*, *q*, *n*
-  * *p* - polynomial that should be converted
-  * *alpha* - subgroup generator of degree *n*
-  * *q* - coefficient modulus
-  * *n* - degree of polynomial
-* **output**: NTT representation of polynomial
-
-Test it with this parameters:  
-```python
-p = [3, -1, 1, 0]
-alpha = 2
-q = 5
-n = 4
-```
-Output should be: `[3, 0, 0, 4]`
-
----
-
-HINT: use `numpy.polynomial.polynomial.polyval` to evaluate polynomial.
-
----
-
-* create function `intt` that will convert polynomial from NTT domain
-* **input**: *p_ntt*, *alpha*, *q*, *n*
-  * *p_ntt* - NTT representation of polynomial
-  * *alpha* - subgroup generator of degree *n*
-  * *q* - coefficient modulus
-  * *n* - degree of polynomial
-* **output**: polynomial
-
-Test it with same parameters, for *p_ntt* use output from `ntt` function.
-
-To solve modular equations install `sympy` library and use following code.
-```python
-from math import gcd
-from sympy import Matrix
-
-'''
-Solve system of modular equations.
-
-:param A: Matrix (NxN) representing coefficients of variables.
-:param B: Matrix (Nx1) representing evaluations of polynomial.
-:param q: Coefficient modulus.
-
-:return: Matrix(Nx1) represeting coefficients of polynomial.
-'''
-def solve(A: Matrix, b: Matrix) -> Optional[Matrix]:
-    det = int(A.det())
-
-    if gcd(det, q) == 1:
-        return pow(det, -1, q) * A.adjugate() @ b % q
-    else:
-        print("cannot solve this equation")
-```
+- Install library `sympy`.
+  - E.g. by running `python3 -m pip install sympy`.
+- Complete the function `ntt` in `ex3.py`.
+- Test your implementation by running `pytest test.py::test_ntt`.
+- Complete the function `innt` in `ex3.py`.
+- Test your implementation by running `pytest test.py::test_intt`.
