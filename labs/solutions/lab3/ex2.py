@@ -1,16 +1,17 @@
+import numpy as np
 from numpy.polynomial import polynomial as poly
-from shared import init_poly
+from numpy.polynomial import Polynomial as P
 
-def polymul_mod(y, z, mod, poly_mod):
-    _, rem = poly.polydiv(poly.polymul(y, z), poly_mod)
 
-    return rem % mod
+def polymul(poly1: P, poly2: P, coefficient_modulus: int, polynomial_modulus: P) -> P:
+    """Multiply two polynomials.
 
-if __name__ == '__main__':
-    mod = 11
-    r, p1, p2 = init_poly(mod, 0)
-    print(polymul_mod(p1, p2, mod, r))
-
-    mod = 5
-    r, p1, p2 = init_poly(mod, 0)
-    print(polymul_mod(p1, p2, mod, r))
+    :param poly1: First polynomial.
+    :param poly2: Second polynomial.
+    :param coefficient_modulus: Coefficient modulus.
+    :param polynomial_modulus: Polynomial modulus.
+    :return: New polynomial poly1*poly2 in Zp[x]/f(x).
+    """
+    mult: np.ndarrar = poly.polymul(poly1.coef, poly2.coef) % coefficient_modulus
+    result, remainder = poly.polydiv(mult, polynomial_modulus.coef)
+    return P(remainder)

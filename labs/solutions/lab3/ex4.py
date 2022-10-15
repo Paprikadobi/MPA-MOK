@@ -1,45 +1,80 @@
+from typing import Tuple
+
 import numpy as np
-from ex1 import polyadd_mod
-from ex2 import polymul_mod
-from ex3 import keygen
+from numpy.polynomial import polynomial as poly
+from numpy.polynomial import Polynomial as P
 
-def encrypt(pk, dim, q, t, poly_mod, pt):
-    a, b = pk
-    u = np.random.randint(0, 2, size = dim)
-    delta = q // t
-    m = np.array([pt] + [0] * (dim - 1), dtype=np.int64) % t
-    e1, e2 = np.random.normal(0, 1, size = dim), np.random.normal(0, 2, size = dim)
+from ex1 import polyadd
+from ex2 import polymul
+from ex3 import get_binary_polynomial, get_uniform_polynomial, get_normal_polynomial
 
-    ct0 = polymul_mod(b, u, q, poly_mod)
-    ct0 = polyadd_mod(ct0, e1, q, poly_mod)
-    ct0 = polyadd_mod(ct0, delta * m, q, poly_mod)
 
-    ct1 = polymul_mod(a, u, q, poly_mod)
-    ct1 = polyadd_mod(ct1, e2, q, poly_mod)
+def encrypt(
+    public_key: Tuple[P, P],
+    dimension: int,
+    message_modulus: int,
+    coefficient_modulus: int,
+    polynomial_modulus: P,
+    message: int,
+) -> Tuple[P, P]:
+    """Encrypt a plaintext.
+
+    :param public_key: Public key.
+    :param dimension: Size of the polynomials0
+    :param message_modulus: Message modulus.
+    :param coefficient_modulus: Coefficient modulus.
+    :param polynomial_modulus: Polynomial modulus0
+    :param message: An integer in Zt.
+    :return: Two vectors of the ciphertext.
+
+    - 'u' is a random binary polynomial of size 'dimension'.
+    - 'e1' and 'e2' are normally distributed polynomials of size 'dimension'.
+    - 'd = q // t'.
+    - 'm' is a constant polynomial. For example:
+      - 'message' is 3 => 'm = [3, 0, 0]',
+      - 'message' is 5 => 'm = [5, 0, 0, 0, 0]'.
+    - 'ct0 = b*u + e1 + d*m % coefficient_modulus' is the first part of ciphertext.
+    - 'ct1 = a*u + e2 % coefficient_modulus' is the second part of ciphertext.
+    """
+    u = P(np.random.randint(0, 2, size=dimension))
+    e1 = P(np.random.normal(0, 2, size=dimension))
+    e2 = P(np.random.normal(0, 2, size=dimension))
+
+    d: int = coefficient_modulus // message_modulus
+    m: P = P([message] + ([0] * (dimension - 1)))
+
+    bu: P = polymul(public_key[0], u, coefficient_modulus, polynomial_modulus)
+    bu_e: P = polyadd(bu, e1, coefficient_modulus, polynomial_modulus)
+    ct0: P = polyadd(bu_e, d * m, coefficient_modulus, polynomial_modulus)
+
+    au: P = polymul(public_key[1], u, coefficient_modulus, polynomial_modulus)
+    ct1: P = polyadd(au, e2, coefficient_modulus, polynomial_modulus)
 
     return ct0, ct1
 
-def decrypt(sk, mod, t, poly_mod, ct):
-	scaled_pt = polyadd_mod(polymul_mod(ct[1], sk, mod, poly_mod), ct[0], mod, poly_mod)
-	delta = mod // t
-	decrypted_poly = np.round(scaled_pt / delta) % t
 
-	return int(decrypted_poly[0])
+def decrypt(
+    private_key: P,
+    coefficient_modulus: int,
+    message_modulus: int,
+    polynomial_modulus: np.array,
+    ciphertext: Tuple[P, P],
+) -> int:
+    """Decrypt a ciphertext back into an integer.
 
+    :param private_key: Private key.
+    :param coefficient_modulus: Coefficient modulus.
+    :param message_modulus: Message modulus.
+    :param polynomial_modulus: Polynomial modulus.
+    :param ciphertext: Encrypted message.
+    """
+    decrypted: P = polymul(
+        ciphertext[1], private_key, coefficient_modulus, polynomial_modulus
+    )
+    plaintext: P = polyadd(
+        decrypted, ciphertext[0], coefficient_modulus, polynomial_modulus
+    )
 
-if __name__ == '__main__':
-    n = 4
-    q = 6481
-    t = 179
-    poly_mod = [1, 0, 0, 0, 1]
-
-    a, b, s = keygen(4, n, q, poly_mod)
-
-    print(f'a: {a}, b: {b}, s: {s}')
-
-    plain_text = 25
-
-    ct = encrypt((a, b), n, q, t, poly_mod, plain_text)
-
-    print(f'ct: {ct}')
-    print(f'plain: {plain_text} decrypted: {decrypt(s, q, t, poly_mod, ct)}')
+    delta: int = coefficient_modulus // message_modulus
+    decrypted_polynomial = np.round(plaintext.coef / delta) % message_modulus
+    return int(decrypted_polynomial[0])
