@@ -1,5 +1,6 @@
 from typing import List
 
+import math
 import sympy
 
 
@@ -12,7 +13,7 @@ def ntt(p: List[int], a: int, q: int, n: int) -> List[int]:
     :param n: Degree of a polynomial.
     :return: NTT representation of the polynomial.
     """
-    # TODO Complete the code here
+    # TODO: Complete the code here
     # Hint: To evaluate polynomial at given point, use
     #       `numpy.polynomial.polynomial.polyval`.
 

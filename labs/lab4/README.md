@@ -1,19 +1,26 @@
 # Laboratory 4 - PQC
 
-In this laboratory we will work with `pqcrypto` library which implements all [PQC NIST finalists](https://csrc.nist.gov/projects/post-quantum-cryptography/round-3-submissions) which are listed below:
+In this laboratory we will work with *pqcrypto* library which implements some of the [PQC NIST candidates to be standardized and round 4 finalists](https://csrc.nist.gov/News/2022/pqc-candidates-to-be-standardized-and-round-4) listed below:  
 
-| Public-Key Encryption/KEMs | Type    | Security Level | Pk + Sk + Ct [B] | 
-|----------------------------|---------|----------------|------------------|
-| Classic McEliece           | code    | 128            | 267 700          |
-| **CRYSTALS-Kyber**         | lattice | 128            | 1 568            |
-| NTRU                       | lattice | 128            | 3 728            | 
-| SABER                      | lattice | 128            | 2 976            |
+**Candidates to be standardized**
+| Public-Key Encryption/KEMs  | Type | Security Level | Pk + Sk + Ct [B] | 
+| ------------- | ------------- | ------------- | ------------- |
+| **CRYSTALS-Kyber** | lattice | 128  | 1 568 |
 
-| Digital Signatures     | Type         | Security Level | Pk + Sk + Sgn [B] | 
-|------------------------|--------------|----------------|-------------------|
-| **CRYSTALS-Dilithium** | lattice      | ~128           | 4 173             |
-| Falcon                 | lattice      | 128            | 2 435             |
-| Rainbow                | multivariate | 128            | 718 256           |
+
+| Digital Signatures  | Type | Security Level | Pk + Sk + Sgn [B] | 
+| ------------- | ------------- | ------------- | ------------- |
+| **CRYSTALS-Dilithium**  | lattice | ~128  | 4 173 |
+| Falcon | lattice | 128  | 2 435 |
+| SPHINCS  | hash | 128  | 17008 |
+
+**Round 4**
+| Public-Key Encryption/KEMs  | Type | Security Level | Pk + Sk + Ct [B] | 
+| ------------- | ------------- | ------------- | ------------- |
+| Classic McEliece  | code | 128  | 267 700 |
+| BIKE | code | 128 | 8337 |
+| HQC  | code | 128 | 9019 | 
+| SIKE | synergy | 128 | 688 |
 
 Kyber and Dilithium belong to Cryptographic Suite for Algebraic Lattices (CRYSTALS), and both rely on the hardness of MLWE problem. 
 
@@ -26,7 +33,7 @@ Compile the source code in directory `src/` and load it in Python:
 
 ```bash
 cd src/
-make
+make c_func.so
 ```
 
 ```python
@@ -125,7 +132,7 @@ from pqcrypto.kem.saber import encrypt, decrypt
   - three KEM schemes,
   - three signing schemes.
 - Make sure they have the same security level.
-  - See more about security levels on [nist.gov](https://csrc.nist.gov/projects/post-quantum-cryptography/post-quantum-cryptography-standardization/evaluation-criteria/security-(evaluation-criteria).
+  - See more about security levels on [nist.gov](https://csrc.nist.gov/projects/post-quantum-cryptography/post-quantum-cryptography-standardization/evaluation-criteria/security-evaluation-criteria).
   - See the security levels of pqcrypto functions on [openquantumsafe.org](https://openquantumsafe.org/liboqs/algorithms).
 - Measure and compare execution time of each scheme (e.g., https://stackoverflow.com/a/7370824).
 - Measure and compare the size of keys and other entities (e.g., `len(public_key)`).

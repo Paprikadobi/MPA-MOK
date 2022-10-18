@@ -34,6 +34,11 @@ def generate_keypair(
     :param coefficient_modulus: Coefficient modulus.
     :param polynomial_modulus: Polynomial modulus.
 
+    - 'a' is a random polynomial of size 'dimension' modulus 'coefficient_modulus'
+    - 'e' is a polynomial normally distributed of size 'dimension'
+    - 's' is a binary polynomial of size 'dimension'
+    - 'b' = -a*s - e
+
     :return: Public key tuple (A, b), private key (s), error (e).
     """
     s = get_binary_polynomial(dimension)

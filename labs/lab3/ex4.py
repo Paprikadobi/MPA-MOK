@@ -36,7 +36,7 @@ def encrypt(
     - 'ct0 = b*u + e1 + d*m % coefficient_modulus' is the first part of ciphertext.
     - 'ct1 = a*u + e2 % coefficient_modulus' is the second part of ciphertext.
     """
-    # TODO Complete the code
+    # TODO: Complete the code
 
 
 def decrypt(
