@@ -36,21 +36,7 @@ def encrypt(
     - 'ct0 = b*u + e1 + d*m % coefficient_modulus' is the first part of ciphertext.
     - 'ct1 = a*u + e2 % coefficient_modulus' is the second part of ciphertext.
     """
-    u = P(np.random.randint(0, 2, size=dimension))
-    e1 = P(np.random.normal(0, 2, size=dimension))
-    e2 = P(np.random.normal(0, 2, size=dimension))
-
-    d: int = coefficient_modulus // message_modulus
-    m: P = P([message] + ([0] * (dimension - 1)))
-
-    bu: P = polymul(public_key[0], u, coefficient_modulus, polynomial_modulus)
-    bu_e: P = polyadd(bu, e1, coefficient_modulus, polynomial_modulus)
-    ct0: P = polyadd(bu_e, d * m, coefficient_modulus, polynomial_modulus)
-
-    au: P = polymul(public_key[1], u, coefficient_modulus, polynomial_modulus)
-    ct1: P = polyadd(au, e2, coefficient_modulus, polynomial_modulus)
-
-    return ct0, ct1
+    # TODO: Complete the code
 
 
 def decrypt(
@@ -76,5 +62,5 @@ def decrypt(
     )
 
     delta: int = coefficient_modulus // message_modulus
-    decrypted_polynomial = np.round(plaintext.coef / delta) % message_modulus
-    return int(decrypted_polynomial[0])
+    decrypted_poly = np.round(plaintext.coef / delta) % message_modulus
+    return int(decrypted_poly[0])

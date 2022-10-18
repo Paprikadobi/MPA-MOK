@@ -4,23 +4,23 @@ import numpy as np
 from numpy.polynomial import polynomial as poly
 from numpy.polynomial import Polynomial as P
 
-from ex1 import polyadd
-from ex2 import polymul
-
 
 def get_binary_polynomial(size: int) -> P:
-    result = np.random.randint(0, 2, size)
-    return P(result)
+    # TODO: Complete the code
+    # Hint: Use numpy.random.randint
+    pass
 
 
 def get_uniform_polynomial(size: int, modulus: int) -> P:
-    result = np.random.randint(0, modulus, size)
-    return P(result)
+    # TODO: Complete the code
+    # Hint: Use numpy.random.randint
+    pass
 
 
 def get_normal_polynomial(size: int) -> P:
-    result = np.random.normal(0, 2, size)
-    return P(np.int64(result))
+    # TODO: Complete the code
+    # Hint: Use numpy.random.normal
+    pass
 
 
 def generate_keypair(
@@ -41,14 +41,4 @@ def generate_keypair(
 
     :return: Public key tuple (A, b), private key (s), error (e).
     """
-    s = get_binary_polynomial(dimension)
-    a = get_uniform_polynomial(dimension, coefficient_modulus)
-    e = get_normal_polynomial(dimension)
-
-    b: P = polyadd(
-        polymul(-a, s, coefficient_modulus, polynomial_modulus),
-        -e,
-        coefficient_modulus,
-        polynomial_modulus,
-    )
-    return (b, a), s, e
+    # TODO: Complete the code

@@ -12,6 +12,6 @@ def polymul(poly1: P, poly2: P, coefficient_modulus: int, polynomial_modulus: P)
     :param polynomial_modulus: Polynomial modulus.
     :return: New polynomial poly1*poly2 in Zp[x]/f(x).
     """
-    mult: np.ndarrar = poly.polymul(poly1.coef, poly2.coef) % coefficient_modulus
-    result, remainder = poly.polydiv(mult, polynomial_modulus.coef)
-    return P(remainder)
+    # TODO: Complete the code here
+    # Hint: Divide poly1*poly2 by polynomial_modulus
+    pass
