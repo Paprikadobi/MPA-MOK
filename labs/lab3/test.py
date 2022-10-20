@@ -62,5 +62,5 @@ def test_encrypt(message: int):
     keypair = ex3.generate_keypair(dimension, cmod, pmod)
     public_key, private_key, error = keypair
 
-    ciphertext = excersise.encrypt(public_key, dimension, mmod, cmod, pmod, message)
-    assert message == excersise.decrypt(private_key, cmod, mmod, pmod, ciphertext)
+    ciphertext = ex4.encrypt(public_key, dimension, mmod, cmod, pmod, message)
+    assert message == ex4.decrypt(private_key, cmod, mmod, pmod, ciphertext)
