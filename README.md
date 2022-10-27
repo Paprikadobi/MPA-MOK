@@ -25,6 +25,7 @@ The credit is required for final exam admission and is awarded upon obtaining at
 - **Laboratory  3** - [LWE problem and Regev scheme](/labs/lab3/README.md)
 - **Laboratory  4** - [PQC](/labs/lab4/README.md)
 - **Laboratory  5** - [Homomorphic Encryption](/labs/lab5/README.md)
+- **Laboratory  6** - [Fully Homomorphic Encryption and Applications](/labs/lab6/README.md)
 
 ---
 
@@ -36,6 +37,7 @@ The credit is required for final exam admission and is awarded upon obtaining at
   - **Lecture 4** - [Kyber, Saber and Dilithium](https://moodle.vut.cz/pluginfile.php/507865/mod_resource/content/1/4.pdf)
 - [Secure Computation Cycles]
   - **Lecture 5** - [Homomorphic Encryption](https://moodle.vut.cz/pluginfile.php/511991/mod_resource/content/1/5.pdf)
+  - **Lecture 6** - [Fully Homomorphic Encryption and Applications](https://moodle.vut.cz/pluginfile.php/512382/mod_resource/content/1/6.pdf)
 
 --- 
 
