@@ -26,6 +26,7 @@ The credit is required for final exam admission and is awarded upon obtaining at
 - **Laboratory  4** - [PQC](/labs/lab4/README.md)
 - **Laboratory  5** - [Homomorphic Encryption](/labs/lab5/README.md)
 - **Laboratory  6** - [Fully Homomorphic Encryption and Applications](/labs/lab6/README.md)
+- **Laboratory  7** - [Secret Sharing](/labs/lab7/README.md)
 
 ---
 
@@ -38,6 +39,7 @@ The credit is required for final exam admission and is awarded upon obtaining at
 - [Secure Computation Cycles]
   - **Lecture 5** - [Homomorphic Encryption](https://moodle.vut.cz/pluginfile.php/511991/mod_resource/content/1/5.pdf)
   - **Lecture 6** - [Fully Homomorphic Encryption and Applications](https://moodle.vut.cz/pluginfile.php/512382/mod_resource/content/1/6.pdf)
+  - **Lecture 7** - [Secret Sharing](https://moodle.vut.cz/pluginfile.php/515174/mod_resource/content/1/7.pdf)
 
 --- 
 
