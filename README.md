@@ -44,7 +44,7 @@ The credit is required for final exam admission and is awarded upon obtaining at
   - **Lecture 7** - [Secret Sharing](https://moodle.vut.cz/pluginfile.php/515174/mod_resource/content/1/7.pdf)
   - **Lecture 8** - [Secure Multiparty Computation](https://moodle.vut.cz/pluginfile.php/517800/mod_resource/content/1/8.pdf)
 - [Decentralized Systems Cycles]
-  - **Lecture 9** - [Blockchain and Smart contracts] - *link will be added later*
+  - **Lecture 9** - [Blockchain and Smart contracts](https://moodle.vut.cz/pluginfile.php/519238/mod_resource/content/3/9.pdf)
 
 --- 
 
