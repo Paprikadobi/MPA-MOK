@@ -29,6 +29,8 @@ The credit is required for final exam admission and is awarded upon obtaining at
 - **Laboratory  7** - [Secret Sharing](/labs/lab7/README.md)
 - **Laboratory  8** - [Secure Multiparty Computation](/labs/lab8/README.md) & **Project Discussion**
 - **Laboratory  9** - [Blockchain](/labs/lab9/README.md)
+- **Laboratory 10** - [Smart Contracts and Cryptocurrencies](/labs/lab10/README.md)
+- **Laboratory 11** - [Data Anonymization](/labs/lab11/README.md)
 
 ---
 
@@ -45,6 +47,9 @@ The credit is required for final exam admission and is awarded upon obtaining at
   - **Lecture 8** - [Secure Multiparty Computation](https://moodle.vut.cz/pluginfile.php/517800/mod_resource/content/1/8.pdf)
 - [Decentralized Systems Cycles]
   - **Lecture 9** - [Blockchain and Smart contracts](https://moodle.vut.cz/pluginfile.php/519238/mod_resource/content/3/9.pdf)
+  - **Lecture 10** - [Cryptocurrency](https://moodle.vut.cz/pluginfile.php/520336/mod_resource/content/4/10.pdf)
+- [Data Privacy Cycles]
+  - **Lecture 11** - [Data Anonymization](https://moodle.vut.cz/pluginfile.php/522125/mod_resource/content/1/11.pdf)
 
 --- 
 
