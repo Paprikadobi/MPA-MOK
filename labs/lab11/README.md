@@ -116,4 +116,4 @@ Propose an anomization of *nr* by:
 - export the dataset in *cleaned.txt* file
 - run some simple statistics of your interest
 
-*NOTE*: the best dataset with analysis presented will receive bous point.   
+*NOTE*: the best dataset with analysis presented will receive bonus point.   
