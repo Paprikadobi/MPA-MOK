@@ -19,12 +19,14 @@ The credit is required for final exam admission and is awarded upon obtaining at
 ---
 
 ## Laboratiries:
-- **Laboratory  1** - [Introduction to python](labs/lab1/README.md)
+- **Laboratory 1** - [Introduction to python](labs/lab1/README.md)
+- **Laboratory 2** - [Numpy library and Lattice](labs/lab2/README.md)
 
 ---
 
 ## Classes:
 - **Lecture 1** - [Introduction](https://moodle.vut.cz/pluginfile.php/707307/mod_resource/content/1/1.pdf)
+- **Lecture 2** - [Introduction to Lattice-based Cryptography](https://moodle.vut.cz/pluginfile.php/779112/mod_resource/content/1/2.pdf)
 
 --- 
 
