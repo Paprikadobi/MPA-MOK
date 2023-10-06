@@ -45,8 +45,3 @@ def babai(basis: np.ndarray, vector: np.ndarray) -> np.ndarray:
 	t = np.round(vector @ basis_inv)
 
 	return t @ basis
-
-
-
-
-

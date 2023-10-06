@@ -170,7 +170,7 @@ import numpy as np
 import lattice as lt
 L = np.array([[2, 0, 0], [1, 1, 0], [0, 0, 3]])  
 lt.hamdamard_ratio(L) 
-U = lt.rand_unimod(3, 3) 
+U = lt.rand_unimod(3) 
 B = np.matmul(L, U) 
 lt.hamdamard_ratio(B) 
 ```
