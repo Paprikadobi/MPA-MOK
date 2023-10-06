@@ -123,7 +123,7 @@ np.random.randint(low=-10, high=11, size=(3,3))
 ## Ex. 1 (0.5p)
 Let *M* be NxN matrix and *v* a vector with N elements. In a file, create a function with:
 * **input** (three integers): *seed*, *dim* and *mod*, where *dim* represents the dimension of M and the size of v
-* generate *M* and *v* at random and print their values
+* generate *M* and *v* at random modulus mod and print their values
 * compute *c* = M*v modulus mod
 * **output** c 
 
