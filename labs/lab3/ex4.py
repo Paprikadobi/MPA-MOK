@@ -29,6 +29,8 @@ def encrypt(
 
     - 'u' is a random binary polynomial of size 'dimension'.
     - 'e1' and 'e2' are normally distributed polynomials of size 'dimension'.
+    - 'q' is coefficient modulus.
+    - 't' is mesasge modulus.
     - 'd = q // t'.
     - 'm' is a constant polynomial. For example:
       - 'message' is 3 => 'm = [3, 0, 0]',
