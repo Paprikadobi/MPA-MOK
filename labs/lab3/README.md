@@ -160,6 +160,24 @@ The following encryption algorithm is based on R-LWE problem and has Homomorphic
 
 ## Encryption algorithm
 
+In order to gain the HE property, we need to do as follows.
+
+- the messagge/plaintext pt is in Zt
+- the public key `pk = (a, b)`
+- the ciphertext `ct = (ct0, ct1)` is a tuple of two polynomials where
+- `ct0 = b * u + e1 + delta * m mod q`
+- `ct1 = a * u + e2 mod q`
+
+
+In particular,
+- u is a random binary polynomial
+- `delta = q // t`
+- m is the constant polynomial m(x) = scaled_pt, where `scaled_pt = delta*m mod q`  
+(for example, if scaled_pt = 3, m(x) = 3 and if the polynomials have degree 2, then `m = np.array([3,0,0])`)
+- e1 and e2 are polynomials normally distributed
+
+Note: the symbol `//` represents the integer division in python language.
+
 ### Ex. 4 - Encryption (0.5p)
 
 - Complete the function `encrypt` in `ex4.py`.
