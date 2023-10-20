@@ -132,7 +132,7 @@ from pqcrypto.kem.saber import encrypt, decrypt
   - three KEM schemes,
   - three signing schemes.
 - Make sure they have the same security level.
-  - See more about security levels on [nist.gov](https://csrc.nist.gov/projects/post-quantum-cryptography/post-quantum-cryptography-standardization/evaluation-criteria/security-evaluation-criteria).
+  - See more about security levels on [nist.gov](https://csrc.nist.gov/projects/post-quantum-cryptography/post-quantum-cryptography-standardization/evaluation-criteria/security-(evaluation-criteria)).
   - See the security levels of pqcrypto functions on [openquantumsafe.org](https://openquantumsafe.org/liboqs/algorithms).
 - Measure and compare execution time of each scheme (e.g., https://stackoverflow.com/a/7370824).
 - Measure and compare the size of keys and other entities (e.g., `len(public_key)`).
