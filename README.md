@@ -23,14 +23,19 @@ The credit is required for final exam admission and is awarded upon obtaining at
 - **Laboratory 2** - [Numpy library and Lattice](labs/lab2/README.md)
 - **Laboratory 3** - [LWE problem and Regev scheme](labs/lab3/README.md)
 - **Laboratory 4** - [PQC](labs/lab4/README.md)
+- **Laboratory 5** - [Homomorphic Encryption](labs/lab5/README.md)
 
 ---
 
 ## Classes:
 - **Lecture 1** - [Introduction](https://moodle.vut.cz/pluginfile.php/707307/mod_resource/content/1/1.pdf)
-- **Lecture 2** - [Introduction to Lattice-based Cryptography](https://moodle.vut.cz/pluginfile.php/779112/mod_resource/content/1/2.pdf)
-- **Lecture 3** - [Lattice-based Cryptography on LWE and R-LWE problems](https://moodle.vut.cz/pluginfile.php/784161/mod_resource/content/1/3.pdf)
-- **Lecture 4** - [Kyber, Saber and Dilithium](https://moodle.vut.cz/pluginfile.php/786886/mod_resource/content/1/4.pdf)
+- [Post-Quantum Cycles]
+  - **Lecture 2** - [Introduction to Lattice-based Cryptography](https://moodle.vut.cz/pluginfile.php/779112/mod_resource/content/1/2.pdf)
+  - **Lecture 3** - [Lattice-based Cryptography on LWE and R-LWE problems](https://moodle.vut.cz/pluginfile.php/784161/mod_resource/content/1/3.pdf)
+  - **Lecture 4** - [Kyber, Saber and Dilithium](https://moodle.vut.cz/pluginfile.php/786886/mod_resource/content/1/4.pdf)
+- [Secure Computation Cycles]
+  - **Lecture 5** - [Homomorphic Encryption](https://moodle.vut.cz/pluginfile.php/789682/mod_resource/content/2/5.pdf)
+  
 --- 
 
 ## Projects:
