@@ -52,7 +52,13 @@ Microsoft SEAL is written in modern standard C++ and is easy to compile and run 
 For more information about the Microsoft SEAL project, see [sealcrypto.org](https://www.microsoft.com/en-us/research/project/microsoft-seal) [[ref](https://github.com/microsoft/SEAL)]."
 
 Check this [repository](https://github.com/Huelse/SEAL-Python) for python wrapper.  
-Follow build [instructions](https://github.com/Huelse/SEAL-Python#linux) to build it for linux.
+Follow build [instructions](https://github.com/Huelse/SEAL-Python#build) to build it for Linux, Windows or using Docker.
+
+---
+
+**NOTE:** When installing using docker you should remove `-DSEAL_USE_ZSTD=OFF` flag from Dockerfile, so it uses compatible compression for next exercise.
+
+---
 
 ## Ex. 2 - FHE hangman client (1p)
 - create simple hangman client that will communicate with server provided in [server.py](server.py)
