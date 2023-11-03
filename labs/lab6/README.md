@@ -22,7 +22,7 @@ cloud computing.
 ---
 
 # Fully homomorphic encryption sandbox environment
-[Morfix.io](https://morfix.io/sandbox) allows you to play with FHE in their web browser based sandbox environment.  
+[Morfix.io](https://morfix.io) allows you to play with FHE in their web browser based sandbox environment.  
 It is powered by [Microsoft SEAL](https://github.com/microsoft/SEAL), there is also python [wrapper](https://github.com/Huelse/SEAL-Python).
 
 ## Available schemes
