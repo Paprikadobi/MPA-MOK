@@ -27,6 +27,7 @@ The credit is required for final exam admission and is awarded upon obtaining at
 - **Laboratory 6** - [Fully Homomorphic Encryption and Applications](labs/lab6/README.md)
 - **Laboratory 7** - [Secret Sharing](labs/lab7/README.md)
 - **Laboratory 8** - [Secure Multiparty Computation](labs/lab8/README.md)
+- **Laboratory 9** - [Blockchain](/labs/lab9/README.md) & **Project Discussion**
 
 ---
 
@@ -41,7 +42,9 @@ The credit is required for final exam admission and is awarded upon obtaining at
   - **Lecture 6** - [Fully Homomorphic Encryption and Applications](https://moodle.vut.cz/pluginfile.php/790830/mod_resource/content/2/6.pdf)
   - **Lecture 7** - [Secret Sharing](https://moodle.vut.cz/pluginfile.php/515174/mod_resource/content/1/7.pdf)
   - **Lecture 8** - [Secure Multiparty Computation](https://moodle.vut.cz/pluginfile.php/793509/mod_resource/content/1/8.pdf)
-  
+- [Decentralized Systems Cycles]
+  - **Lecture 9** - [Blockchain and Smart contracts](https://moodle.vut.cz/pluginfile.php/795705/mod_resource/content/2/9.pdf)
+
 --- 
 
 ## Projects:
