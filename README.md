@@ -30,6 +30,7 @@ The credit is required for final exam admission and is awarded upon obtaining at
 - **Laboratory 9** - [Blockchain](labs/lab9/README.md) & **Project Discussion**
 - **Laboratory 10** - [Smart Contracts and Cryptocurrencies](labs/lab10/README.md)
 - **Laboratory 11** - [Data Anonymization](labs/lab11/README.md)
+- **Laboratory 12** - [K-anonymity](labs/lab12/README.md)
 
 ---
 
@@ -49,6 +50,7 @@ The credit is required for final exam admission and is awarded upon obtaining at
   - **Lecture 10** - [Cryptocurrency](https://moodle.vut.cz/pluginfile.php/795995/mod_resource/content/3/10.pdf)
 - [Data Privacy Cycles]
   - **Lecture 11** - [Data Anonymization](https://moodle.vut.cz/pluginfile.php/798875/mod_resource/content/1/11.pdf)
+  - **Lecture 12** - [Differential Privacy, k-anonymity and Record Linkage](https://moodle.vut.cz/pluginfile.php/800206/mod_resource/content/2/12.pdf)
 
 --- 
 
