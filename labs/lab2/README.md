@@ -4,9 +4,9 @@ NumPy (Numerical Python) is an open-source Python library used for working with 
 
 **Install dependencies(libs)**
   ```console
-  $ pip install <dep_name>
+  $ pip3 install <dep_name>
   ```
-  - depends on what is default python use
+  - depends on what default python uses
   ```console
   $ pip3 install <dep_name>
   ```
@@ -56,12 +56,12 @@ v = np.array([0,1,2,3,4,5])
 ```python
 mod_vect = v % 3 
 ```
-* You can see that modulus 3 is applied to each element of the array. Use following command to see the value of a variable:
+* You can see that modulus 3 is applied to each element of the array. Use the following command to see the value of a variable:
 ```python
 print(mod_vect)
 ```
   ---
-  You can also have access to each element of the array. Try:
+  You can also have access to each element of an array. Try:
   ```python
   mod_vect[0] 
   mod_vect[6]
@@ -94,7 +94,7 @@ matrix.ndim
 ```
 
 ---
-Note that they have the same number of elements but different dimension:
+Note that the vector and the matrix have the same number of elements but different dimension:
 ```python
 matrix[0] 
 matrix[0][1]
